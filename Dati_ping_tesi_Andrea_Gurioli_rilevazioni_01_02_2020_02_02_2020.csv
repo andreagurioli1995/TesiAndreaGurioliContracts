@@ -1,4 +1,4 @@
-﻿gasprice,pingtime(SEC),EthUsed,€cost
+﻿gasprice(GWEI),pingtime(SEC),EthUsed,€cost
 0.1,8,0.000005,0.00086
 0.1,6,0.000005,0.00086
 0.1,14,0.000005,0.00086
