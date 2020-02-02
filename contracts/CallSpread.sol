@@ -7,7 +7,7 @@ import "TradingAccount.sol";
 
 contract CallSpread is owned, loggable {
     event infoMargin(uint totalMargin);
-    event infoTime(uint totalTime);
+    event infoTime(uint initialTime, uint totalTime);
 
     // Contract status
     bool public             _isActive;
@@ -279,10 +279,10 @@ contract CallSpread is owned, loggable {
     // ===== Utility functions ===== //
 ///////////////////////////////////////////////////////////////
 //funzione di ping da analizzare!
-    function ping() returns (bool) {
+    function ping(uint initialTime) returns (bool) {
+         // timestamp del block, evento nel log
+        infoTime(initialTime, block.timestamp);
         return rebalanceMargin();
-        // timestamp del block, evento nel log
-        infoTime(block.timestamp);
     }
 
     function getSellerOption() returns (address) {
