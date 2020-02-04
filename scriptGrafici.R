@@ -1,0 +1,16 @@
+library(datasets)
+library(dplyr)
+library(stats)
+library(stats4)
+library(ggplot2)
+library(readr)
+library(fBasics)
+library(plotrix)
+Datas <- read_csv("C:\\Users\\bigfo\\Desktop\\progetto tech\\TesiAndreaGurioliContracts\\Dati_ping_tesi_Andrea_Gurioli_rilevazioni_01_02_2020_02_02_2020.csv")
+View(Datas)
+meanTime<-aggregate(pingtime_SEC ~ gasprice_GWEI, data=Datas, FUN=mean)
+meanTime
+plot(meanTime$gasprice_GWEI,meanTime$pingtime_SEC,type='o',col='red',lwd=2)
+v<-aggregate(pingtime_SEC ~ gasprice_GWEI, data=Datas, FUN=sd)
+v
+plot(v$gasprice_GWEI,v$pingtime_SEC,type='o',col='red',lwd=2)
