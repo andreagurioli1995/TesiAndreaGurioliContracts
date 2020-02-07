@@ -13,4 +13,5 @@ meanTime
 plot(meanTime$gasprice_GWEI,meanTime$pingtime_SEC,type='o',col='red',lwd=2)
 DeviazioneStandardGP<-aggregate(pingtime_SEC ~ gasprice_GWEI, data=Datas, FUN=sd)
 DeviazioneStandardGP
-plot(DeviazioneStandardGP$gasprice_GWEI,DeviazioneStandardGP$pingtime_SEC,type='h',col='blue',lwd=4)
+DeviazioneStandardGP<-rename(DeviazioneStandardGP, deviazione_standard='pingtime_SEC')
+plot(DeviazioneStandardGP$gasprice_GWEI,DeviazioneStandardGP$deviazione_standard,type='h',col='blue',lwd=4)
